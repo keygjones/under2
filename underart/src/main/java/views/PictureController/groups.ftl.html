@@ -1,0 +1,21 @@
+<#import "../layout/defaultLayout.ftl.html" as layout> <@layout.myLayout i18n("articleNew.pageTitle")>
+
+<#if allGroups??>
+    
+    <#list allGroups as group>
+    <p>${group.name}</p>  
+    	<#list group.pictureList as pic>
+   
+        <h3>
+            ${pic.name}
+        </h3>  
+        <img src="/assets/pictures/thumbs/${pic.file}" style="width:100px">
+        <p>${pic.created?date}</p>  
+        <a href="/picture/edit/${pic.id}">Edit</a>
+        </#list>
+    </#list>
+    
+</#if>
+
+
+</@layout.myLayout>

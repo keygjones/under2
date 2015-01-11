@@ -1,0 +1,27 @@
+<#import "../layout/scrollLayout.ftl.html" as layout> <@layout.myLayout>
+
+
+	
+<#if allPictures??>
+<div class="container gallery">
+	<#list allPictures as pic>
+	<div class="pictureBox">
+		<div class="pictureTitle">${pic.name}</div>
+		<a href="/assets/pictures/${pic.file}" class="swipebox magnify"
+			title="${pic.about}"> 
+			<img src="/assets/pictures/thumbs/${pic.file}" style="width: 150px; height:120px" alt="image">
+		</a>
+		<div class="simpleCart_shelfItem">
+			<h2 class="item_name hidden">${pic.name}</h2>
+				<input type="text" value="1" class="item_Quantity hidden">
+				<a class="item_add btn btn-success btn-xs"
+					href="javascript:;"> <span class="item_price">$1</span> Add to Cart </a>
+		</div>
+		<#if (session.username)??> 
+		<a href="/picture/edit/${pic.id}">Edit</a>
+		<a href="/picture/delete/${pic.id}" >Delete</a>
+		</#if>
+	</div>
+	</#list>
+</div>
+</#if> </@layout.myLayout>

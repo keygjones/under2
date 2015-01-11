@@ -1,0 +1,147 @@
+/* Add additional stylesheets below
+-------------------------------------------------- */
+@font-face {
+    font-family: myFont;
+    src: url('/assets/fonts/font.ttf');
+}
+
+.frontPageImg{
+    width: 100%;
+}
+
+.ScrollSceneIndicators{
+    z-index: 5 !important;
+}
+
+.navbar{
+    opacity: 0.9;
+    min-height: 58px;
+}
+
+.navbar-brand{
+   padding-top: 5px !important;
+   font-family: myFont;
+   font-size: 30px;
+}
+
+.navbar-inverse .navbar-brand{
+    color:white;
+}
+
+.navbar-brand img{
+   margin-right:20px;
+}
+
+.navbar-inverse .navbar-nav>li>a{
+    color:white;
+    padding-top:20px;
+    font-family: 'Dosis', sans-serif;
+}
+
+.pictureTitle{
+	text-align: center;
+	font-family: 'Dosis', sans-serif;
+	margin-bottom:2px;
+}
+
+.navbar-inverse{
+	border-color: white;
+	border-bottom-width: 2px; 
+}
+
+#quote{
+	font-size: 40px;
+	color:white;
+    padding-top:20px;
+    font-family: 'Dosis', sans-serif;
+	position: absolute;
+    margin-top: 40px;
+    margin-left: 80px;
+    width: 600px;
+    height: 200px;
+    z-index:10;
+}
+
+#quote .name{
+	font-size: 20px;
+}
+
+
+.box{
+    height: 200px;
+    width: 300px;
+    background-color: white;
+    opacity: 0.7;
+    padding: 15px;
+    z-index: 20;
+    float: left;
+    margin: 20px;
+    border: solid 1px;
+}
+
+.editPicture{
+	width:300px;
+}
+
+.newPicture{
+	margin-top:100px;
+	width:300px;
+}
+
+.gallery{
+	margin-top:100px;
+}
+
+.pictureBox{
+	float:left;
+	margin:20px;
+}
+
+.simpleCart_shelfItem{
+	margin-top:2px;
+}
+
+.item_add{
+	width:150px;
+}
+
+.simpleCart_quantity{
+	color:white;
+}
+
+.simpleCart_items td{
+	padding:5px;
+}
+
+.glyphicon{
+	color:white;
+	margin-right:3px;
+}
+
+.modal-content{
+	padding:20px;
+}
+
+.magnify{
+	cursor:zoom-in;
+}
+
+.bgEgypt{
+	background-image: linear-gradient(rgba(255,255,255,0.5),rgba(255,255,255,0.5)), url("/assets/img/backgroundEgypt.jpg");
+	background-size:   cover; 
+}
+
+.bgIceland{
+	background-image: linear-gradient(rgba(255,255,255,0.5),rgba(255,255,255,0.5)), url("/assets/img/backgroundIceland.jpg");
+	background-size:   cover; 
+}
+
+.bgNorway{
+	background-image: linear-gradient(rgba(255,255,255,0.5),rgba(255,255,255,0.5)), url("/assets/img/backgroundNorway.jpg");
+	background-size:   cover; 
+}
+
+#showCart{
+	cursor:pointer;
+}
+

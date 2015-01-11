@@ -1,0 +1,27 @@
+<#import "../layout/defaultLayout.ftl.html" as layout> <@layout.myLayout i18n("articleNew.pageTitle")>
+
+<#if allPictures??>
+    
+    <#list allPictures as pic>
+   <div class="pictureBox">
+        <h3>
+            ${pic.name}
+            
+        </h3>  
+        <a href="/assets/pictures/${pic.file}" class="swipebox" title="${pic.about}">
+			<img src="/assets/pictures/thumbs/${pic.file}" style="width:100px" alt="image">
+		</a>
+		<br>
+		<#list pic.picturegroupList as group>
+            ${group.name} <br>
+        </#list>
+        <p>${pic.created?date}</p>  
+        <a href="/picture/edit/${pic.id}">Edit</a>
+        <a href="/picture/delete/${pic.id}" >Delete</a>
+        </div>
+    </#list>
+    
+</#if>
+
+
+</@layout.myLayout>

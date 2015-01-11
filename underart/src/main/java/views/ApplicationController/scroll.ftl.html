@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript" src="/assets/webjars/jquery/2.1.1/jquery.js"></script>
+        <script type="text/javascript" src="/assets/js/simpleCart.min.js"></script>
+        <script type="text/javascript" src="/assets/js/shopInit.js"></script>
+        <script type="text/javascript" src="/assets/js/TweenMax.js"></script>
+        <script type="text/javascript" src="/assets/js/jquery.scrollmagic.js"></script>
+        <script type="text/javascript" src="/assets/js/jquery.scrollmagic.debug.js"></script>
+        <script type="text/javascript" src="/assets/webjars/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+        <link href="/assets/css/examples.css" rel="stylesheet">
+        <link href="/assets/css/normalize.css" rel="stylesheet">
+        <link href="/assets/css/style.css" rel="stylesheet">
+        <link href="/assets/webjars/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="/assets/webjars/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href="/assets/css/custom.css" rel="stylesheet">
+        <link href='http://fonts.googleapis.com/css?family=Dosis' rel='stylesheet' type='text/css'>
+    </head>
+
+
+    <body>
+        <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">
+                        <img alt="Brand" src="/assets/img/logo3.png">
+                        Diving miss Daisy
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#">About <span class="sr-only">(current)</span></a></li>
+                        <li><a href="#">Egypt <span class="sr-only">(current)</span></a></li>
+                        <li><a href="#">Iceland <span class="sr-only">(current)</span></a></li>
+                        <li><a href="#">Norway <span class="sr-only">(current)</span></a></li>
+                        <li><a href="#">Service <span class="sr-only">(current)</span></a></li>
+                        <li><a href="#">Equipment <span class="sr-only">(current)</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="scrollContent">
+        <div id=quote><q>The sea, <br>once it casts its spell,<br> holds one in its net of wonder forever.</q> <br>
+        <div class=name>Jacques Yves Cousteau</div></div>
+            <div id="titlechart">
+                <img src="/assets/img/background2.jpg" class="frontPageImg">
+                <script>
+                    var controller;
+                    $(document).ready(function($) {
+                        // init controller
+                        controller = new ScrollMagic();
+
+                        // build tween
+                        var tween = TweenMax.fromTo(".frontPageImg", 0.5,
+                                {},
+                                {scale: 1.5}
+                        );
+                        var tween2 = TweenMax.to(".frontPageImg", 0.5, {opacity:0.3});
+                        new ScrollScene({
+                            triggerElement: "#titlechart",
+                            duration: 600,
+                            offset: 300})
+                                .setTween(tween)
+                                .addTo(controller);
+                                //.addIndicators();
+
+                        new ScrollScene({
+                            triggerElement: "#trigger1",
+                            offset: -600})
+                                .setPin("#titlechart")
+                                .addTo(controller);
+                                //.addIndicators();
+
+                        new ScrollScene({
+                            triggerElement: "#trigger1",
+                            offset: -600})
+                                .setTween(tween2)
+                                .addTo(controller);
+                                //.addIndicators();
+                    });
+                </script>
+
+            </div>
+            <section>
+                <div id="trigger1" class="spacer s0"></div>
+
+                <div id="previewContainer" class='container'>                    
+                    <div class="container box" style="background: url(/assets/img/Flag_of_Egypt.svg);background-size: 100%;"></div>
+                    <div class="container box" style="background: url(/assets/img/Flag_of_Norway.svg);background-size: 100%;"></div>
+                    <div class="container box" style="background: url(/assets/img/Flag_of_Iceland.svg);background-size: 100%;"></div>
+                </div>
+                <div id="trigger2" class="spacer s1"></div>
+
+                <script>
+                    $(document).ready(function($) {
+                        new ScrollScene({triggerElement: "#trigger2", duration: 150})
+                                .setPin("#previewContainer")
+                                .addTo(controller);
+                                //.addIndicators(); // show indicators (requires debug extension)
+                    });
+                </script>
+            </section>
+
+            <div class="spacer s_viewport"></div>
+        </div>
+
+    </body>
+</html>

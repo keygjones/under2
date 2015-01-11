@@ -1,0 +1,85 @@
+<nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+	<div class="container-fluid">
+	<div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <div class="navbar-header">
+			<a class="navbar-brand" href="/"> <img alt="Brand"
+				src="/assets/img/logo3.png"> Diving miss Daisy
+			</a>
+		</div>
+    </div>
+		
+		<div class="collapse navbar-collapse"
+			id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li><a href="#">About <span class="sr-only">(current)</span></a></li>
+				<li id="nav1" class="navMenuEl"><a href="#" onclick="loadGallery(1)">Egypt <span class="sr-only">(current)</span></a></li>
+				<li id="nav3" class="navMenuEl"><a href="#" onclick="loadGallery(3)">Iceland <span class="sr-only">(current)</span></a></li>
+				<li id="nav2" class="navMenuEl"><a href="#" onclick="loadGallery(2)">Norway <span class="sr-only">(current)</span></a></li>
+				<li><a href="#">Service <span class="sr-only">(current)</span></a></li>
+				<li><a href="#">Equipment <span class="sr-only">(current)</span></a></li>
+			</ul>
+			<ul class="navbar-right nav navbar-nav">
+				<#if (session.username)??>
+				<li><a href="#">${session.username}</a></li>
+				<li><a href="/article/new">${i18n("header.new")}</a></li>
+				<li><a href="/picture/new">${i18n("header.new.picture")}</a></li>
+				<li><a href="/picture/all">${i18n("header.all.picture")}</a></li>
+				<li><a href="/logout">${i18n("header.logout")}</a></li> <#else>
+				<li><a href="/login" id="login"><span class="glyphicon glyphicon-lock"></span>${i18n("header.login")}</a></li>
+				</#if>
+				<li><a id="showCart"><span class="glyphicon glyphicon-shopping-cart simpleCart_quantity"></span>Checkout</a></li>
+
+			</ul>
+
+		</div>
+	</div>
+</nav>
+<div id="checkoutCart" class="modal fade">
+	<div class="modal-dialog">
+
+		<div class="modal-content">
+			<div class="simpleCart_items"></div>
+			<div class="simpleCart_total"></div>
+			<br> 
+			<a class="btn btn-success simpleCart_checkout" href="javascript:;">Checkout</a> 
+			<a class="btn btn-info" data-dismiss="modal" href="javascript:;">Continue Shopping</a>
+			<a class="btn btn-danger simpleCart_empty pull-right" href="javascript:;">Empty Basket</a>	
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	
+	$(document).ready(function() {
+		$("#showCart").click(function() {
+			$("#checkoutCart").modal();
+		});
+		
+    	if (localStorage.getItem("page") === null) {
+    		console.log('no page set');
+    	}else{
+    		selected = localStorage.getItem("page");
+    		if(selected==1){
+    			$('body').addClass('bgEgypt');
+    		} else if(selected==3){
+    			$('body').addClass('bgIceland');
+    		} else if(selected==2){
+    			$('body').addClass('bgNorway');
+    		}
+    		$(".navMenuEl").removeClass('active');
+        	$("#nav"+selected).addClass('active');
+    	}
+    	
+	});
+	function loadGallery(number){
+                    	selected = number;
+                    	$(location).attr('href','/picture/group/'+number);
+                    	localStorage.setItem("page", number);
+                    	
+                    }
+</script>

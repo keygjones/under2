@@ -1,0 +1,48 @@
+<#import "../layout/defaultLayout.ftl.html" as layout> <@layout.myLayout
+i18n("articleNew.pageTitle")>
+
+
+<div class="container editPicture">
+	<#if picture??>
+	<form method="post" action="/picture/editSubmit">
+		<input class="hidden" type="text" name="pictureId"
+			value="${picture.id}">
+		<div class="form-group">
+			<label>Name: </label> <input type="text" name="name"
+				value="${picture.name}" class="form-control">
+		</div>
+		<img src="/assets/pictures/${picture.file}" style="width: 280px">
+		<div class="form-group">
+			<label>About: </label> 
+			<textarea rows=3 name="about" class="form-control">${picture.about}</textarea>
+		</div>
+		<label>Group:</label>
+		<select class="form-control" name="group" multiple> 
+		<#list groups as group>
+		 <#assign found=false>
+			<#list selected as select>
+			 <#if select.id == group.id>
+			 <#assign found=true>
+			 <option value="${group.id}" selected>${group.name}</option>
+			 </#if>
+			</#list>
+			<#if found==false> 
+			<option value="${group.id}">${group.name}</option>
+			</#if>
+		</#list>
+		</select> 
+		<br>
+		<input type="submit" value="submit" class="btn btn-primary">
+		<a class="btn btn-danger" href="/picture/delete/${picture.id}" role="button">Delete</a>
+	</form>
+	<#else>
+
+	<p>
+		Sorry. Post not found. Please go back to <a href="/index">index</a>
+	</p>
+
+	</#if>
+</div>
+
+
+</@layout.myLayout>
