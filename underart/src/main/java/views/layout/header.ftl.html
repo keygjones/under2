@@ -59,8 +59,9 @@
 			$("#checkoutCart").modal();
 		});
 		
-    	if (localStorage.getItem("page") === null) {
-    		console.log('no page set');
+    	if (localStorage.getItem("page") === null || $("#quote").length) {
+    		console.log('FrontPage');
+    		$('body').removeClass();
     	}else{
     		selected = localStorage.getItem("page");
     		if(selected==1){
